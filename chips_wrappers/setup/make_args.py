@@ -3,8 +3,10 @@ import argparse
 import shlex
 from copy import deepcopy
 
-SCALAR_DENSITY_CORRECTION = 2.6505481727808022
+# fixed normalisation after testing during Nunhokee et al. 2024 analysis
+# Tested with noise model
 
+SCALAR_DENSITY_CORRECTION = 2.6505481727808022 / 1.27
 def get_args(argv=None):
     """Parse command line arugments using argparse. Returns the args"""
     
