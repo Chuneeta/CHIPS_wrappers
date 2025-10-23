@@ -112,7 +112,7 @@ def get_args(argv=None):
         help="Lowest k-value to grid the data to (applies to both perp and parra)")
     plot_group_1D.add_argument("--high_k_edge", type=float, default=5,
         help="Highest k-value to grid the data to (applies to both perp and parra)")
-    plot_group_1D.add_argument("--num_k_edges", type=int, default=21,
+    plot_group_1D.add_argument("--num_k_edges", type=int, default=50,
         help="Number of k-bins to grid to between --low_k_edge and --high_k_edge")
 
     plot_group_1D.add_argument("--kperp_max", default=20, type=float,
@@ -145,18 +145,20 @@ def get_args(argv=None):
     chips_group = parser.add_argument_group('CHIPS OPTIONS')
     chips_group.add_argument("--N_kperp",type=int, default=80,
         help="The number of kperp bins used in CHIPS 'fft_thermal' command. Default=80")
-    chips_group.add_argument("--N_chan",type=int, default=384,
+    chips_group.add_argument("--N_chan",type=int, default=375,
         help="The number of frequency channels used in CHIPS 'prepare_diff' and "\
-        "'fft_thermal' commands. Default=384")
+        "'fft_thermal' commands. Default=375")
     ##TODO make options for low/high band that grab the frequency automagically for you
-    chips_group.add_argument("--lowerfreq", default=167.035e6, type=float,
+    chips_group.add_argument("--lowerfreq", default=170.0, type=float,
         help="Lowest frequency channel in data (Hz). Default is 167.035e+6")
     chips_group.add_argument("--chan_width", default=80e+3, type=float,
         help="Width of individual spectral channel (Hz). Default = 80e+3")
     # chips_group.add_argument("--deltat", default=8., type=float,
     #     help="Time resolution of data (s). Default = 8")
-    chips_group.add_argument("--umax", default=300., type=float,
-        help="Maximum u-value used in 'fft_thermal' stage (wavelengths). Default = 300")
+    chips_group.add_argument("--umax", default=500., type=float,
+        help="Maximum u-value used in 'fft_thermal' stage (wavelengths). Default = 500")
+    chips_group.add_argument("--delta_u",type=int, default=10,
+        help="The bin length along u and v plane. Default=10")
     chips_group.add_argument("--density_correction", default=SCALAR_DENSITY_CORRECTION,
         help="Density correction to correct for decoherence. Defaults to factor 2 "
         "based on Barry et al. 2019a (Appendix A). Enter 0 for no correction, "
@@ -248,3 +250,4 @@ class FakeArgs(object):
         self.omega_baryon=0.046
         self.omega_lambda=0.7
         self.hubble=70.4
+ 

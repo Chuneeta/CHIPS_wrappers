@@ -124,10 +124,13 @@ class ChipsDataProducts(object):
         self.eta[0] = self.eta[1]/2.
 
         #The bin length on the u,v plane the data were gridded to (in wavelengths)
-        self.u_arr = np.zeros(parser_args.N_kperp)
-        for i in range(0,parser_args.N_kperp):
-            self.u_arr[i] = float(i)*parser_args.umax*1.1/float(parser_args.N_kperp)
-        self.u_arr[0] = self.u_arr[1]/2.
+        #self.u_arr = np.zeros(parser_args.N_kperp)
+        #for i in range(0,parser_args.N_kperp):
+        #    self.u_arr[i] = float(i)*parser_args.umax*1.1/float(parser_args.N_kperp)
+        #self.u_arr[0] = self.u_arr[1]/2.
+        # tweaked for ska
+        self.u_arr = np.arange(0, parser_args.umax, parser_args.delta_u)
+        self.u_arr[0] = self.u_arr[1]/2. 
 
         ##21cm radiation frequency in m/s
         f21 = SPEED_LIGHT / WAVELENGTH_21CM
@@ -155,7 +158,9 @@ class ChipsDataProducts(object):
 
         ##New way of doing it===================================================
         cent_wavelength = SPEED_LIGHT / self.central_freq
-        beam_area_steradian = 0.07597
+        #beam_area_steradian = 0.07597
+        # SKA beam area
+        beam_area_steradian = 80.e3*0.07597/9. 
         ##Frequency bandwidth of the data
         bandwidth = float(parser_args.N_chan)*parser_args.chan_width
 
