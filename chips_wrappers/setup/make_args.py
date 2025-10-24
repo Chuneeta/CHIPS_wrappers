@@ -149,7 +149,7 @@ def get_args(argv=None):
         help="The number of frequency channels used in CHIPS 'prepare_diff' and "\
         "'fft_thermal' commands. Default=375")
     ##TODO make options for low/high band that grab the frequency automagically for you
-    chips_group.add_argument("--lowerfreq", default=170.0, type=float,
+    chips_group.add_argument("--lowerfreq", default=170.24e6, type=float,
         help="Lowest frequency channel in data (Hz). Default is 167.035e+6")
     chips_group.add_argument("--chan_width", default=80e+3, type=float,
         help="Width of individual spectral channel (Hz). Default = 80e+3")
