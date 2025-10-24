@@ -113,8 +113,7 @@ class ChipsDataProducts(object):
         parser_args = self.parser_args
 
         self.central_freq = parser_args.lowerfreq + int(parser_args.N_chan / 2)*parser_args.chan_width
-        print (parser_args.lowerfreq)
-        print (self.central_freq)
+      
         ##Frequency bandwidth of the data
         bandwidth = float(parser_args.N_chan)*parser_args.chan_width
 
@@ -230,7 +229,6 @@ class ChipsDataProducts(object):
                 self.parser_args.Neta = int(N_chans_present / 2)
             
             # data = np.reshape(data, (self.parser_args.N_kperp,self.parser_args.N_chan))
-            print (data.shape, self.parser_args.N_kperp, N_chans_present)
             data = np.reshape(data, (self.parser_args.N_kperp, N_chans_present))
 
             ##TODO through some useful error if the reshaping cannot be done
