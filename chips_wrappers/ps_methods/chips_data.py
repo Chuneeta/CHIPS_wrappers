@@ -113,7 +113,8 @@ class ChipsDataProducts(object):
         parser_args = self.parser_args
 
         self.central_freq = parser_args.lowerfreq + int(parser_args.N_chan / 2)*parser_args.chan_width
-
+        print (parser_args.lowerfreq)
+        print (self.central_freq)
         ##Frequency bandwidth of the data
         bandwidth = float(parser_args.N_chan)*parser_args.chan_width
 
