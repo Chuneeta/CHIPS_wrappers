@@ -229,6 +229,7 @@ class ChipsDataProducts(object):
                 self.parser_args.Neta = int(N_chans_present / 2)
             
             # data = np.reshape(data, (self.parser_args.N_kperp,self.parser_args.N_chan))
+            print (data.shape, self.parser_args.N_kperp, N_chans_present)
             data = np.reshape(data, (self.parser_args.N_kperp, N_chans_present))
 
             ##TODO through some useful error if the reshaping cannot be done
@@ -295,7 +296,7 @@ class ChipsDataProducts(object):
         
         file_found = False
         ##Try various running option numbers, and stop if we find valid files
-        for run_opt in [0, 1, 10, 20, 21, 22]:
+        for run_opt in [0]:
             kriging = run_opt
             filename = f"{self.parser_args.basedir}/crosspower_{polarisation}_{kriging}.iter.{chips_tag}.dat"
             

@@ -143,7 +143,7 @@ def get_args(argv=None):
 
 
     chips_group = parser.add_argument_group('CHIPS OPTIONS')
-    chips_group.add_argument("--N_kperp",type=int, default=80,
+    chips_group.add_argument("--N_kperp",type=int, default=50,
         help="The number of kperp bins used in CHIPS 'fft_thermal' command. Default=80")
     chips_group.add_argument("--N_chan",type=int, default=375,
         help="The number of frequency channels used in CHIPS 'prepare_diff' and "\

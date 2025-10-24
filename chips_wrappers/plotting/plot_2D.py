@@ -443,7 +443,6 @@ def do_2D_plot(chips_data):
         # twoD_ps_array, extent = convert_to_2D_PS_array(crosspower, weights)
 
         twoD_ps_array, extent = chips_data.read_data_and_create_2Darray(chips_data.parser_args.polarisation)
-
         if chips_data.parser_args.colourscale == 'pos_and_negs':
             fig = plt.figure(figsize=(6,7))
             num_axes = 1
